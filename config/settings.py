@@ -40,7 +40,6 @@ INSTALLED_APPS = [
 
     #local apps
     'schedule',
-    'users',
 ]
 
 MIDDLEWARE = [
