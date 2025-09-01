@@ -6,29 +6,10 @@ from .forms import MuayClass1Form
 
 
 def index(request):
-    muay_class = MuayClass1.objects.all()
+    muay_class = MuayClass1.objects.all().order_by('start_time')
 
     context = {
         'muay_class': muay_class,
     }
 
     return render(request, 'schedule/index.html', context)
-
-
-# def index(request):
-#     muay_class = MuayClass1.objects.all()
-
-#     if request.method == 'POST':
-#         form = MuayClass1Form(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('home')
-#     else:
-#         form = MuayClass1Form()
-
-#     context = {
-#         'muay_class': muay_class,
-#         'form': form
-#     }
-
-#     return render(request, 'schedule/index.html', context)
