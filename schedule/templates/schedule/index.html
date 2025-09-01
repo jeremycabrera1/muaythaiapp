@@ -1,0 +1,19 @@
+<h2>Add a New Class</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Class</button>
+</form>
+
+<h2>Class Schedule</h2>
+<ul>
+    {% for item in muay_class %}
+        <li>
+            <strong>{{ item.title }}</strong> <br>
+            Coach: {{ item.coach }} <br>
+            Time: {{ item.start_time }} - {{ item.end_time }}
+        </li>
+    {% empty %}
+        <li>No classes yet.</li>
+    {% endfor %}
+</ul>
