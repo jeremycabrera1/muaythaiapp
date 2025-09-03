@@ -13,3 +13,6 @@ def index(request):
     }
 
     return render(request, 'schedule/index.html', context)
+
+def about(request):
+    return render(request, 'schedule/about.html', {})
