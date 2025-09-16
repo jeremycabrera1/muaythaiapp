@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 
 from .models import MuayClass1
 from .forms import MuayClass1Form
@@ -16,3 +16,7 @@ def index(request):
 
 def about(request):
     return render(request, 'schedule/about.html', {})
+
+
+def register_class(request, id):
+    return HttpResponse(f"Registering for class {id}")
