@@ -7,6 +7,7 @@ class MuayClass1Form(forms.ModelForm):
         model = MuayClass1
         fields = ['title', 'coach', 'start_time', 'end_time']
 
+
 class RegistrationForm(forms.ModelForm):
     class Meta:
         model = Registration

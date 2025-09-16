@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Class Registration</h1>
+
+    <!-- Show errors if form is invalid -->
+    {% if form.errors %}
+        <div style="color: red;">
+            <p>Please fix the errors below:</p>
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <!-- The form itself -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
