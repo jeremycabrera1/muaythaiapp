@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .thank-you-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        a:hover {
+            background: linear-gradient(45deg, #f7931e, #ff6b35);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <h1>Thank You!</h1>
+        <p>Your registration has been received. We’ll give you a call! 🥋</p>
+        <a href="{% url 'home' %}">Back to Schedule</a>
+    </div>
+</body>
+</html>

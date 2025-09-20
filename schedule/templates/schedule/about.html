@@ -1,12 +1,100 @@
-<html>
-{% block content %}
-    <h3>At Team Link Muay Thai Worcester, we believe in the power of positive reinforcement. We help our students grow their confidence, build discipline, and become the best they can be. Muay Thai training isn't just about punches and kicks -- it's about striving to be better. Enroll for your first class and see for yourself why everyone around Worcester and Shrewsbury chooses us!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-We've helped children and adults from across our community develop more robust fitness, learn practical self-defense, and feel revitalized! Our classes offer a great workout, professional instructors, and a passionate community. It's never too late to get started.
+        .about-container {
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 0.8s ease;
+        }
 
-</h3>
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
 
-{% endblock content %}
+        p {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
 
+        .highlight {
+            color: #ff6b35;
+            font-weight: bold;
+        }
 
-</html>
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            border-radius: 25px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+            background: linear-gradient(45deg, #f7931e, #ff6b35);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="about-container">
+        <h2>About Us</h2>
+        <p>
+            At <span class="highlight">{{ GYM_NAME }}</span>, we believe in the power of positive reinforcement. 
+            We help our students grow their confidence, build discipline, and become the best they can be. 
+            Muay Thai training isn't just about punches and kicks — it's about striving to be better. 
+        </p>
+        <p>
+            Enroll for your first class and see for yourself why everyone around Worcester and Shrewsbury chooses us! 
+            We've helped children and adults from across our community develop stronger fitness, learn practical self-defense, 
+            and feel revitalized.

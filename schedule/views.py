@@ -19,6 +19,10 @@ def about(request):
     return render(request, 'schedule/about.html', {})
 
 
+def thank_you(request):
+    return render(request, 'schedule/thank_you.html', {})
+
+
 def register_class(request, id):
     muay_class = get_object_or_404(MuayClass1, id=id)
 
@@ -26,7 +30,7 @@ def register_class(request, id):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('thank_you')
     else:
         form = RegistrationForm()
 
