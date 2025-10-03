@@ -19,6 +19,14 @@ def about(request):
     return render(request, 'schedule/about.html', {})
 
 
+def events(request):
+    return render(request, 'schedule/events.html', {})
+
+
+def gallery(request):
+    return render(request, 'schedule/gallery.html', {})
+
+
 def thank_you(request):
     return render(request, 'schedule/thank_you.html', {})
 
