@@ -1,18 +1,10 @@
+{% extends 'schedule/_base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muay Thai Class Schedule</title>
-    <link rel="stylesheet" href="{% static 'schedule/styles.css' %}">
-</head>
+
+{% block content %}
 <body>
     <div class="schedule-container">
         <h2>Class Schedule</h2>
-        <div style="text-align: center; margin-bottom: 20px;">
-            <a href="{% url 'about' %}" class="about-btn">About</a>
-        </div>
         <ul>
     {% for item in muay_class %}
         <li>
@@ -24,13 +16,14 @@
             <a href="{% url 'register_class' item.id %}" class="register-btn">
                 Register Now
             </a>
-    </div>
+            </div>
         </li>
     {% empty %}
         <li>No classes yet.</li>
     {% endfor %}
-</ul>
+        </ul>
 
     </div>
 </body>
+{% endblock %}
 </html>
