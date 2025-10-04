@@ -102,7 +102,7 @@ br {
 .home-btn,
 .events-btn,
 .gallery-btn,
-.about-btn {
+.about-btn { 
     display: inline-block;
     margin-bottom: 20px;
     padding: 10px 20px;
@@ -122,14 +122,17 @@ br {
     margin-bottom: 20px;
     padding: 10px 20px;
     border-radius: 25px;
-    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    background: linear-gradient(45deg, #43e97b, #38f9d7);
     color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
     letter-spacing: 1px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 4px 15px rgba(56, 249, 215, 0.3);
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .register-btn {
@@ -146,6 +149,9 @@ br {
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    position:absolute;
+    top:10px;
+    right:10px;
 }
 
 .home-btn:hover {
@@ -167,6 +173,12 @@ br {
 }
 
 .gallery-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+}
+
+.reviews-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
     background: linear-gradient(45deg, #00f2fe, #4facfe);
