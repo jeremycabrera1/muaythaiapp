@@ -6,15 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Muay Thai Class Schedule{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'schedule/styles.css' %}" />
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
-        <div>
-            <a href="{% url 'home' %}" class="home-btn">Home</a>
-            <a href="{% url 'about' %}" class="about-btn">About</a>
-            <a href="{% url 'events' %}" class="events-btn">Events</a>
-            <a href="{% url 'gallery' %}" class="gallery-btn">Gallery</a>
-        </div>
-        {% block content %}
-        
-        {% endblock %} 
-    </body>
+    <div>
+        <a href="{% url 'home' %}" class="home-btn">Home</a>
+        <a href="{% url 'about' %}" class="about-btn">About</a>
+        <a href="{% url 'events' %}" class="events-btn">Events</a>
+        <a href="{% url 'gallery' %}" class="gallery-btn">Gallery</a>
+    </div>
+
+    <div>
+    <a href="{% url 'reviews' %}" class="reviews-btn">Reviews</a>
+    </div>
+
+    {% block content %}
+    
+    {% endblock %} 
+</body>
