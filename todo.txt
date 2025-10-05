@@ -1,3 +1,0 @@
-Fix registration form with bootstrap by watching "https://www.youtube.com/watch?v=XapMxdIyLM8" 
-Watch videos on how to add a review section option for the app --> This may be a good first option "https://www.youtube.com/watch?v=UgEVC7oJDHI"
-make a "contact us" button
