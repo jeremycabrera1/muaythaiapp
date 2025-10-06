@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+;
+}
+p {
+    font-family: 'Arial', sans-serif;
+    outline-style: solid;
+    outline-color: #ff6b35;
+    outline-width: 2px;
+    background: rgba(255, 255, 255, 0.05);
+    line-height: 1.6;
+    margin-bottom: 1.2em;
+    font-size: 32px;
+}

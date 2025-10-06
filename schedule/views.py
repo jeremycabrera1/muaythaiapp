@@ -30,6 +30,9 @@ def gallery(request):
 def thank_you(request):
     return render(request, 'schedule/thank_you.html', {})
 
+def reviews(request):
+    return render(request, 'schedule/reviews.html', {})
+
 
 def register_class(request, id):
     muay_class = get_object_or_404(MuayClass1, id=id)

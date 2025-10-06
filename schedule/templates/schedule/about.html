@@ -1,24 +1,29 @@
-<!DOCTYPE html>
 {% extends 'schedule/_base.html' %}
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
+    {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'schedule/about.css' %}">
+    {% endblock %}
 </head>
-{% block content %}
 <body>
+    {% block content %}
     <div class="about-container">
         <h2>About Us</h2>
         <p>
             At <span class="highlight">{{ GYM_NAME }}</span>, we believe in the power of positive reinforcement. 
             We help our students grow their confidence, build discipline, and become the best they can be. 
             Muay Thai training isn't just about punches and kicks — it's about striving to be better. 
-        </p>
-        <p>
+        
             Enroll for your first class and see for yourself why everyone around Worcester and Shrewsbury chooses us! 
             We've helped children and adults from across our community develop stronger fitness, learn practical self-defense, 
             and feel revitalized.
         </p>
+    </div>    
+    {% endblock %}
 </body>
-{% endblock %}
+
