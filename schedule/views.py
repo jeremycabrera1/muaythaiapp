@@ -33,6 +33,9 @@ def thank_you(request):
 def reviews(request):
     return render(request, 'schedule/reviews.html', {})
 
+def inquiry(request):
+    return render(request, 'schedule/inquiry.html', {})
+
 
 def register_class(request, id):
     muay_class = get_object_or_404(MuayClass1, id=id)

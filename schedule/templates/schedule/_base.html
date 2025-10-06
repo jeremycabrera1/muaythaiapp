@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Muay Thai Class Schedule{% endblock %}</title>
+    <title>{% block title %}Muay Thai Class{% endblock %}</title>
 
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'schedule/styles.css' %}" />
@@ -25,6 +25,7 @@
         </div>
         <div class="right-btns">
             <a href="{% url 'reviews' %}" class="post-btns">Reviews</a>
+            <a href="{% url 'inquiry' %}" class="post-btns">Inquiry</a>
         </div>
     </header>
 
