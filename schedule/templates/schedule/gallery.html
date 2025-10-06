@@ -1,21 +1,14 @@
 {% extends 'schedule/_base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Gallery{% endblock %}</title>
-</head>
-<body>
+
 {% block content%}
-    <div class="gallery-container">
-        <h2>Gallery</h2>
-        <p>Check out some photos from our classes and events!</p>
-        <div class="image-grid">
-            <img src="{% static 'schedule/images/test_img1.jpg' %}" alt="Test Image 1" width="300" height="200">
-            ]
-        </div>
-    </div>    
+<title>{% block title %}Gallery{% endblock %}</title>
+<div class="gallery-container">
+    <h2>Gallery</h2>
+    <p>Check out some photos from our classes and events!</p>
+    <div class="image-grid">
+        <img src="{% static 'schedule/images/test_img1.jpg' %}" alt="Test Image 1" width="300" height="200">
+        ]
+    </div>
+</div>    
 {% endblock %}
-</body>

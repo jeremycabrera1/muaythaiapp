@@ -1,35 +1,35 @@
 {% extends 'schedule/_base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-</head>
-{% block content %}
-<body>
-    <div class="form-container">
-        <h1>Class Registration</h1>
+{% load bootstrap5 %}
 
-        {% if form.errors %}
-            <div class="error-list">
-                <p>Please fix the errors below:</p>
-                <ul>
-                    {% for field in form %}
-                        {% for error in field.errors %}
-                            <li>{{ field.label }}: {{ error }}</li>
-                        {% endfor %}
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
-
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
-    </div>
-</body>
+{% block extra_head %}
+    {% bootstrap_css %}
 {% endblock %}
-</html>
+
+{% block extra_scripts %}
+    {% bootstrap_javascript %}
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Class Registration</h1>
+
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <p>Please fix the errors below:</p>
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <form method="post" class="p-3 bg-light rounded shadow-sm">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

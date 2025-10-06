@@ -23,6 +23,17 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 h2 {
     text-align: center;
     font-size: 2.5rem;
@@ -99,7 +110,7 @@ br {
     margin-bottom: 8px;
 }
 
-.get-btns { 
+.get-btns {
     display: inline-block;
     margin-bottom: 20px;
     padding: 10px 20px;
@@ -146,9 +157,9 @@ br {
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-    position:absolute;
-    top:10px;
-    right:10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .get-btns:hover {
@@ -251,4 +262,55 @@ li:nth-child(5) {
 
 li:nth-child(n+6) {
     animation-delay: 0.6s;
+}
+
+body,
+.form-control,
+.form-select,
+textarea,
+input {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 10px;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus,
+input:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: #ff6b35 !important;
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.3) !important;
+    color: #fff !important;
+}
+
+label {
+    color: #f7931e;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button,
+.btn,
+.submit-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white !important;
+    border: none !important;
+    border-radius: 25px !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+button:hover,
+.btn:hover,
+.submit-btn:hover {
+    background: linear-gradient(45deg, #f7931e, #ff6b35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
 }

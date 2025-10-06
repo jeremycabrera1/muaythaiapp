@@ -1,13 +1,20 @@
-<!DOCTYPE html>
 {% load static %}
+{% load bootstrap5 %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Muay Thai Class Schedule{% endblock %}</title>
+
+    {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'schedule/styles.css' %}" />
+
     {% block extra_css %}{% endblock %}
+
+    {% bootstrap_javascript %}
 </head>
+
 <body>
     <header>
         <div class="left-btns">

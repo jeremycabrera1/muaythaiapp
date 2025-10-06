@@ -1,17 +1,11 @@
 {% extends 'schedule/_base.html' %}
-<!DOCTYPE html>
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Events{% endblock %}</title>
-</head>
-</body>
+
 {% block content %}
+<title>{% block title %}Upcoming Events{% endblock %}</title>
     <div class="events-container">
         <h2>Upcoming Events</h2>
         <p>Stay tuned for upcoming events and special classes!</p>
     </div>
 {% endblock %}
-</html>
+
