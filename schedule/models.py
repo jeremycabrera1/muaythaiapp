@@ -26,10 +26,17 @@ class Registration(models.Model):
     
 
 class Reviews(models.Model):
-    user = models.ForeignKey(Registration, on_delete=models.CASCADE, related_name='reviews')
-    rating = models.PositiveSmallIntegerField(default=1, validators=[MaxValueValidator(5)])
+    RATING = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+    name = models.CharField(max_length=100, default="")
+    rating = models.PositiveSmallIntegerField(default=1, choices=RATING, validators=[MaxValueValidator(5)])
     review = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.user.name} {self.user.last_name}'
+        return f'{self.name} - {self.rating}/5'

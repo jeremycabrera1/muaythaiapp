@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 
-from .models import MuayClass1
-from .forms import MuayClass1Form, RegistrationForm
+from .models import MuayClass1, Reviews
+from .forms import MuayClass1Form, RegistrationForm, ReviewsForm
 # Create your views here.
 
 
@@ -30,8 +30,33 @@ def gallery(request):
 def thank_you(request):
     return render(request, 'schedule/thank_you.html', {})
 
+
+def thank_you_review(request):
+    return render(request, 'schedule/thank_you_review.html')
+
+
 def reviews(request):
-    return render(request, 'schedule/reviews.html', {})
+    reviews = Reviews.objects.all().order_by('-date')
+    context = {
+        'reviews': reviews
+    }
+    return render(request, 'schedule/reviews.html', context)
+
+
+def leave_a_review(request):
+    if request.method == 'POST':
+        form = ReviewsForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.save()
+            return redirect('thank_you_review')
+    else:
+        form = ReviewsForm()
+
+    return render(request, 'schedule/leave_a_review.html', {
+        'form': form,
+    })
+
 
 def inquiry(request):
     return render(request, 'schedule/inquiry.html', {})
@@ -48,7 +73,9 @@ def register_class(request, id):
     else:
         form = RegistrationForm()
 
-    return render(request, 'schedule/registration_form.html', {
+    context = {
         'form': form,
         'muay_class': muay_class
-    })
+    }
+
+    return render(request, 'schedule/registration_form.html', context)

@@ -1,19 +1,30 @@
 {% extends 'schedule/_base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Reviews{% endblock %}</title>
-    
-</head>
-<body>
-{% block content%}
-    <div class="reviews-container">
-        <h2>Reviews</h2>
-        <p>Check out what our students think of us!</p>
-    </div>    
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'schedule/reviews.css' %}">
 {% endblock %}
-</body>
+
+{% block content %}
+<div class="reviews-container">
+    <h2>Reviews</h2>
+
+    <a href="{% url 'leave_a_review' %}" class="leave-review-btn">Write a Review!</a>
+    <p>Check out what our students think of us!</p>
+
+    <ul class="review-list">
+        {% for item in reviews %}
+        <li>
+            <strong>{{ item.name }}</strong><br>
+            <span class="rating">⭐ {{ item.rating }}/5</span><br>
+            <p class="review-text">{{ item.review }}</p>
+            <small class="review-date">{{ item.date }}</small>
+        </li>
+        {% empty %}
+        <li class="no-reviews">No reviews yet. Be the first to share your experience!</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
 
