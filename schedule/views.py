@@ -1,3 +1,6 @@
+from django.shortcuts import render, redirect, get_object_or_404
+from .forms import ReviewsForm
+from .models import Reviews
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 
 from .models import MuayClass1, Reviews
@@ -34,13 +37,18 @@ def thank_you(request):
 def thank_you_review(request):
     return render(request, 'schedule/thank_you_review.html')
 
+# Read
+
 
 def reviews(request):
+
     reviews = Reviews.objects.all().order_by('-date')
     context = {
         'reviews': reviews
     }
     return render(request, 'schedule/reviews.html', context)
+
+# Create
 
 
 def leave_a_review(request):
@@ -49,13 +57,31 @@ def leave_a_review(request):
         if form.is_valid():
             review = form.save(commit=False)
             review.save()
-            return redirect('thank_you_review')
+            return redirect('reviews')
     else:
         form = ReviewsForm()
 
     return render(request, 'schedule/leave_a_review.html', {
         'form': form,
     })
+
+
+def update_review(request, id):
+    review = get_object_or_404(Reviews, pk=id)
+    
+    if request.method == 'POST':
+        form = ReviewsForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            return redirect('reviews')  # back to review list
+    else:
+        form = ReviewsForm(instance=review)
+
+    context = {
+        'form': form,
+        'edit': True
+    }
+    return render(request, 'schedule/leave_a_review.html', context)
 
 
 def inquiry(request):

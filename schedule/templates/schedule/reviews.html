@@ -19,6 +19,7 @@
             <span class="rating">⭐ {{ item.rating }}/5</span><br>
             <p class="review-text">{{ item.review }}</p>
             <small class="review-date">{{ item.date }}</small>
+            <a href="{% url 'update_review' item.id %}" class="update-btn">Update</a>
         </li>
         {% empty %}
         <li class="no-reviews">No reviews yet. Be the first to share your experience!</li>
