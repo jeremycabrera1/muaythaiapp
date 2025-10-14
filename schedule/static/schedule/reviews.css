@@ -1,0 +1,121 @@
+.reviews-container {
+    max-width: 900px;
+    margin: 60px auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.reviews-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.leave-review-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(56, 249, 215, 0.3);
+    margin-bottom: 20px;
+}
+
+.leave-review-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+}
+
+.update-btn,
+.delete-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-right: 5px;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.update-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+}
+
+.update-btn:hover {
+    background: linear-gradient(45deg, #f7931e, #ff6b35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+}
+
+.delete-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(45deg, #f7931e, #ff6b35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+}
+
+.review-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.review-list li {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1));
+    border: 1px solid rgba(255, 107, 53, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.review-list li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
+}
+
+.review-text {
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+.rating {
+    color: #f7931e;
+    font-weight: bold;
+}
+
+.review-date {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.no-reviews {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+}
