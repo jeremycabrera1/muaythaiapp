@@ -39,6 +39,42 @@
     box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
 }
 
+.update-btn,
+.delete-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-right: 5px;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.update-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+}
+
+.update-btn:hover {
+    background: linear-gradient(45deg, #f7931e, #ff6b35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+}
+
+.delete-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(45deg, #f7931e, #ff6b35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+}
+
 .review-list {
     list-style: none;
     padding: 0;

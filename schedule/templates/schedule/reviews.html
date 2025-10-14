@@ -20,6 +20,7 @@
             <p class="review-text">{{ item.review }}</p>
             <small class="review-date">{{ item.date }}</small>
             <a href="{% url 'update_review' item.id %}" class="update-btn">Update</a>
+            <a href="{% url 'delete_review' item.id %}" class="delete-btn">Delete</a>
         </li>
         {% empty %}
         <li class="no-reviews">No reviews yet. Be the first to share your experience!</li>

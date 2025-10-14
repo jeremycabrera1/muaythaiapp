@@ -37,8 +37,6 @@ def thank_you(request):
 def thank_you_review(request):
     return render(request, 'schedule/thank_you_review.html')
 
-# Read
-
 
 def reviews(request):
 
@@ -47,8 +45,6 @@ def reviews(request):
         'reviews': reviews
     }
     return render(request, 'schedule/reviews.html', context)
-
-# Create
 
 
 def leave_a_review(request):
@@ -68,7 +64,7 @@ def leave_a_review(request):
 
 def update_review(request, id):
     review = get_object_or_404(Reviews, pk=id)
-    
+
     if request.method == 'POST':
         form = ReviewsForm(request.POST, instance=review)
         if form.is_valid():
@@ -82,6 +78,16 @@ def update_review(request, id):
         'edit': True
     }
     return render(request, 'schedule/leave_a_review.html', context)
+
+
+def delete_review(request, id):
+    review = get_object_or_404(Reviews, pk=id)
+
+    if request.method == 'POST':
+        review.delete()
+        return redirect('reviews')
+
+    return render(request, 'schedule/delete_review_confirmation.html', {'review': review})
 
 
 def inquiry(request):
