@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6da1189-7b3a-4b28-9cc3-b046f83bad8a" name="Changes" comment="" />
+    <list default="true" id="c6da1189-7b3a-4b28-9cc3-b046f83bad8a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/muaythaiapp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/muaythaiapp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schedule/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schedule/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/schedule/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,12 +25,12 @@
     &quot;assignee&quot;: &quot;jeremycabrera1&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/jeremycabrera1/muaythaiapp&quot;,
-    &quot;accountId&quot;: &quot;5f0e0b2f-7f36-4ec3-8ac7-53bc1a5c658f&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/jeremycabrera1/muaythaiapp.git",
+    "accountId": "5f0e0b2f-7f36-4ec3-8ac7-53bc1a5c658f"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -35,8 +44,8 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "template__and__style",
-    "last_opened_file_path": "/Users/jeremycabrera/Desktop/muayapp_fun",
+    "git-widget-placeholder": "post__work",
+    "last_opened_file_path": "/Users/jeremycabrera/Desktop/muaythaiapp",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>

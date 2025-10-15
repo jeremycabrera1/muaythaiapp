@@ -16,4 +16,4 @@ class RegistrationForm(forms.ModelForm):
 class ReviewsForm(forms.ModelForm):
     class Meta:
         model = Reviews
-        fields = ['name', 'rating', 'review',]
+        fields = ['owner', 'rating', 'review',]

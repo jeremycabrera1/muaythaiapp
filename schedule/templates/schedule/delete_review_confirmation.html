@@ -8,7 +8,7 @@
 {% block content %}
 <div class="reviews-container">
     <h2>Delete Review</h2>
-    <p><strong>{{ review.name }}</strong>: {{ review.review }}</p>
+    <p><strong>{{ review.owner }}</strong>: {{ review.review }}</p>
 
     <form method="POST">
         {% csrf_token %}
