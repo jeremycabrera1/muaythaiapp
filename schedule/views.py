@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import ReviewsForm
-from .models import Reviews
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 
+from .forms import RegistrationForm, ReviewsForm
 from .models import MuayClass1, Reviews
-from .forms import MuayClass1Form, RegistrationForm, ReviewsForm
 # Create your views here.
 
 
@@ -38,7 +36,7 @@ def thank_you_review(request):
     return render(request, 'schedule/thank_you_review.html')
 
 
-def reviews(request):
+def reviews(request): # Should have named it read_review
 
     reviews = Reviews.objects.all().order_by('-date')
     context = {
@@ -47,9 +45,10 @@ def reviews(request):
     return render(request, 'schedule/reviews.html', context)
 
 
-def leave_a_review(request):
+def leave_a_review(request):# Should have named it create_review
     if request.method == 'POST':
         form = ReviewsForm(request.POST)
+
         if form.is_valid():
             review = form.save(commit=False)
             review.save()
