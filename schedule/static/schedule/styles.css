@@ -4,6 +4,25 @@
     box-sizing: border-box;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: relative;
+}
+
+.left-btns,
+.right-btns {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.right-btns {
+    margin-left: auto;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
@@ -15,6 +34,17 @@ body {
 .schedule-container {
     max-width: 800px;
     margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -99,7 +129,7 @@ br {
     margin-bottom: 8px;
 }
 
-.get-btns { 
+.get-btns {
     display: inline-block;
     margin-bottom: 20px;
     padding: 10px 20px;
@@ -117,6 +147,8 @@ br {
 .post-btns {
     display: inline-block;
     margin-bottom: 20px;
+    margin-left: 10px;
+    /* small spacing between post buttons */
     padding: 10px 20px;
     border-radius: 25px;
     background: linear-gradient(45deg, #43e97b, #38f9d7);
@@ -127,9 +159,8 @@ br {
     letter-spacing: 1px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(56, 249, 215, 0.3);
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    position: relative;
+    /* remove absolute positioning */
 }
 
 .register-btn {
@@ -146,9 +177,9 @@ br {
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-    position:absolute;
-    top:10px;
-    right:10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 .get-btns:hover {
@@ -163,6 +194,7 @@ br {
     background: linear-gradient(45deg, #00f2fe, #4facfe);
 }
 
+
 .register-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
@@ -171,23 +203,6 @@ br {
 
 .register-btn:active {
     transform: translateY(0);
-}
-
-li:last-child {
-    text-align: center;
-    padding: 60px 20px;
-    color: #888;
-    font-size: 1.2rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 2px dashed rgba(255, 255, 255, 0.1);
-}
-
-li:last-child::before {
-    content: "🥋";
-    display: block;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    opacity: 0.3;
 }
 
 @media (max-width: 768px) {
@@ -208,47 +223,53 @@ li:last-child::before {
     }
 }
 
-/* Animation for page load */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+body,
+.form-control,
+.form-select,
+textarea,
+input {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 10px;
 }
 
-li {
-    animation: slideIn 0.6s ease forwards;
+.form-control:focus,
+.form-select:focus,
+textarea:focus,
+input:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: #ff6b35 !important;
+    box-shadow: 0 0 10px rgba(255, 107, 53, 0.3) !important;
+    color: #fff !important;
 }
 
-li:nth-child(n) {
-    animation-delay: calc(0.1s * var(--item-index, 1));
+label {
+    color: #f7931e;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-li:nth-child(1) {
-    animation-delay: 0.1s;
+button,
+.btn,
+.submit-btn {
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: white !important;
+    border: none !important;
+    border-radius: 25px !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
-li:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-li:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-li:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-li:nth-child(5) {
-    animation-delay: 0.5s;
-}
-
-li:nth-child(n+6) {
-    animation-delay: 0.6s;
+button:hover,
+.btn:hover,
+.submit-btn:hover {
+    background: linear-gradient(45deg, #f7931e, #ff6b35);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
 }

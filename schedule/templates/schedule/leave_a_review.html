@@ -1,8 +1,10 @@
 {% extends 'schedule/_base.html' %}
 {% load bootstrap5 %}
+{% load static %}
 
 {% block extra_head %}
     {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'schedule/forms.css' %}">
 {% endblock %}
 
 {% block extra_scripts %}
@@ -11,10 +13,10 @@
 
 {% block content %}
 <div class="form-container">
-    <h1>Class Registration</h1>
+    <h1>Leave a Review</h1>
 
     {% if form.errors %}
-        <div class="alert alert-danger">
+        <div class="alert alert-danger mt-3">
             <p>Please fix the errors below:</p>
             <ul>
                 {% for field in form %}
@@ -26,10 +28,10 @@
         </div>
     {% endif %}
 
-    <form method="post" class="p-3 bg-light rounded shadow-sm">
+    <form method="post" class="dark-form">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="submit-btn">Submit</button>
     </form>
 </div>
 {% endblock %}

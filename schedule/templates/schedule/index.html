@@ -2,28 +2,27 @@
 {% load static %}
 
 {% block content %}
-<body>
-    <div class="schedule-container">
-        <h2>Class Schedule</h2>
-        <ul>
-    {% for item in muay_class %}
-        <li>
-            <strong>{{ item.title }}</strong> <br>
-            Coach: {{ item.coach }} <br>
-            Time: {{ item.start_time }} - {{ item.end_time }}
+<title>{% block title %}Class Schedule{% endblock %}</title>
 
-            <div style="margin-top: 20px; text-align: right;">
-            <a href="{% url 'register_class' item.id %}" class="register-btn">
-                Register Now
-            </a>
-            </div>
-        </li>
-    {% empty %}
-        <li>No classes yet.</li>
-    {% endfor %}
-        </ul>
+<div class="schedule-container">
+    <h2>Class Schedule</h2>
+    <ul>
+        {% for item in muay_class %}
+            <li>
+                <strong>{{ item.title }}</strong> <br>
+                Coach: {{ item.coach }} <br>
+                Time: {{ item.start_time }} - {{ item.end_time }}
 
-    </div>
-</body>
+                <div style="margin-top: 20px; text-align: right;">
+                <a href="{% url 'register_class' item.id %}" class="register-btn">
+                    Register Now
+                </a>
+                </div>
+            </li>
+        {% empty %}
+            <li>No classes yet.</li>
+        {% endfor %}
+    </ul>
+
+</div>
 {% endblock %}
-</html>
