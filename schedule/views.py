@@ -15,6 +15,25 @@ def index(request):
 
     return render(request, 'schedule/index.html', context)
 
+def register_class(request, id):
+    muay_class = get_object_or_404(MuayClass1, id=id)
+
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('thank_you')
+    else:
+        form = RegistrationForm()
+
+    context = {
+        'form': form,
+        'muay_class': muay_class
+    }
+
+    return render(request, 'schedule/registration_form.html', context)
+
+
 
 def about(request):
     return render(request, 'schedule/about.html', {})
@@ -91,22 +110,3 @@ def delete_review(request, id):
 
 def inquiry(request):
     return render(request, 'schedule/inquiry.html', {})
-
-
-def register_class(request, id):
-    muay_class = get_object_or_404(MuayClass1, id=id)
-
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('thank_you')
-    else:
-        form = RegistrationForm()
-
-    context = {
-        'form': form,
-        'muay_class': muay_class
-    }
-
-    return render(request, 'schedule/registration_form.html', context)
