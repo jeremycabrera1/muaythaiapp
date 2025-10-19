@@ -15,6 +15,7 @@ def index(request):
 
     return render(request, 'schedule/index.html', context)
 
+
 def register_class(request, id):
     muay_class = get_object_or_404(MuayClass1, id=id)
 
@@ -32,7 +33,6 @@ def register_class(request, id):
     }
 
     return render(request, 'schedule/registration_form.html', context)
-
 
 
 def about(request):
@@ -55,16 +55,16 @@ def thank_you_review(request):
     return render(request, 'schedule/thank_you_review.html')
 
 
-def reviews(request): # Should have named it read_review
-
-    reviews = Reviews.objects.all().order_by('-date')
+def read_review(request):  # Should have named it read_review
+    review = Reviews.objects.all().order_by('-date')
+    
     context = {
-        'reviews': reviews
+        'review': review
     }
     return render(request, 'schedule/reviews.html', context)
 
 
-def leave_a_review(request):# Should have named it create_review
+def create_review(request):  # Should have named it create_review
     if request.method == 'POST':
         form = ReviewsForm(request.POST)
 
@@ -75,7 +75,7 @@ def leave_a_review(request):# Should have named it create_review
     else:
         form = ReviewsForm()
 
-    return render(request, 'schedule/leave_a_review.html', {
+    return render(request, 'schedule/create_review.html', {
         'form': form,
     })
 
@@ -95,7 +95,7 @@ def update_review(request, id):
         'form': form,
         'edit': True
     }
-    return render(request, 'schedule/leave_a_review.html', context)
+    return render(request, 'schedule/create_review.html', context)
 
 
 def delete_review(request, id):

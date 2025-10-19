@@ -9,11 +9,11 @@
 <div class="reviews-container">
     <h2>Reviews</h2>
 
-    <a href="{% url 'leave_a_review' %}" class="leave-review-btn">Write a Review!</a>
+    <a href="{% url 'create_review' %}" class="create-review-btn">Write a Review!</a>
     <p>Check out what our students think of us!</p>
 
     <ul class="review-list">
-        {% for item in reviews %}
+        {% for item in review %}
         <li>
             <strong>{{ item.name }}</strong><br>
             <span class="rating">⭐ {{ item.rating }}/5</span><br>
@@ -28,10 +28,6 @@
 
     </ul>
 </div>
-
-
-
-
 {% endblock %}
 
 

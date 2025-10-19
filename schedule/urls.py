@@ -1,14 +1,14 @@
 from django.urls import path, include
 
-from .views import index, about, register_class, thank_you, events, gallery, reviews, inquiry, leave_a_review, thank_you_review, update_review, delete_review
+from .views import index, about, register_class, thank_you, events, gallery, read_review, inquiry, create_review, thank_you_review, update_review, delete_review
 
 urlpatterns = [
     path('', index, name='home'),
     path('about/', about, name='about'),
     path('events/', events, name='events'),
     path('gallery/', gallery, name='gallery'),
-    path('reviews/', reviews, name='reviews'),
-    path('leave-a-review/', leave_a_review, name='leave_a_review'),
+    path('reviews/', read_review, name='reviews'),
+    path('leave-a-review/', create_review, name='create_review'),
     path('update-review/<int:id>/', update_review, name='update_review'),
     path('delete-review/<int:id>/', delete_review, name='delete_review'),
     path('inquiry/', inquiry, name='inquiry'),
