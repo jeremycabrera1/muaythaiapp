@@ -55,7 +55,7 @@ def thank_you_review(request):
     return render(request, 'schedule/thank_you_review.html')
 
 
-def read_review(request):  # Should have named it read_review
+def read_review(request):
     review = Reviews.objects.all().order_by('-date')
     
     context = {
@@ -64,7 +64,7 @@ def read_review(request):  # Should have named it read_review
     return render(request, 'schedule/reviews.html', context)
 
 
-def create_review(request):  # Should have named it create_review
+def create_review(request):
     if request.method == 'POST':
         form = ReviewsForm(request.POST)
 
@@ -87,7 +87,7 @@ def update_review(request, id):
         form = ReviewsForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
-            return redirect('reviews')  # back to review list
+            return redirect('reviews')
     else:
         form = ReviewsForm(instance=review)
 
