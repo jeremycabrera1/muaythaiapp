@@ -28,7 +28,9 @@
             <a href="{% url 'inquiry' %}" class="post-btns">Inquiry</a>
         </div>
     </header>
-
+    {% if user.is_authenticated %}
+        <h4><p>Logged in as {{ user }}</p></h4>
+    {% endif %}
     <main>
         {% block content %}{% endblock %}
     </main>

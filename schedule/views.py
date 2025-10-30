@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 from .forms import RegistrationForm, ReviewsForm
 from .models import MuayClass1, Reviews
@@ -15,7 +16,7 @@ def index(request):
 
     return render(request, 'schedule/index.html', context)
 
-
+@login_required
 def register_class(request, id):
     muay_class = get_object_or_404(MuayClass1, id=id)
 
@@ -63,7 +64,7 @@ def read_review(request):
     }
     return render(request, 'schedule/reviews.html', context)
 
-
+@login_required
 def create_review(request):
     if request.method == 'POST':
         form = ReviewsForm(request.POST)
@@ -79,7 +80,7 @@ def create_review(request):
         'form': form,
     })
 
-
+@login_required
 def update_review(request, id):
     review = get_object_or_404(Reviews, pk=id)
 
@@ -97,7 +98,7 @@ def update_review(request, id):
     }
     return render(request, 'schedule/create_review.html', context)
 
-
+@login_required
 def delete_review(request, id):
     review = get_object_or_404(Reviews, pk=id)
 

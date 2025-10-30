@@ -10,6 +10,7 @@ def signup(request):
         if form.is_valid():
             signup = form.save(commit=False)
             signup.save()
+            return redirect('home')
 
     else:
         form = UserCreationForm()
