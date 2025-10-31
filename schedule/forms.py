@@ -1,10 +1,10 @@
 from django import forms
-from .models import MuayClass1, Registration, Reviews
+from .models import MuayClass, Registration, Reviews
 
 
 class MuayClass1Form(forms.ModelForm):
     class Meta:
-        model = MuayClass1
+        model = MuayClass
         fields = ['title', 'coach', 'start_time', 'end_time']
 
 

@@ -1,9 +1,10 @@
 from django.urls import path, include
 
-from .views import index, about, register_class, thank_you, events, gallery, read_review, inquiry, create_review, thank_you_review, update_review, delete_review
+from .views import index, about, register_class, thank_you, events, gallery, read_review, inquiry, create_review, thank_you_review, update_review, delete_review, my_classes
 
 urlpatterns = [
     path('', index, name='home'),
+    path('my-classes/', my_classes, name='my_classes'),
     path('about/', about, name='about'),
     path('events/', events, name='events'),
     path('gallery/', gallery, name='gallery'),

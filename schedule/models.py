@@ -1,11 +1,14 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
+from django.contrib.auth import get_user_model
 from phonenumber_field.modelfields import PhoneNumberField
 
+
+User = get_user_model()
 # Create your models here.
 
 
-class MuayClass1(models.Model):
+class MuayClass(models.Model):
     title = models.CharField(max_length=100, default='Untitled')
     coach = models.CharField(max_length=100)
     start_time = models.TimeField()
@@ -20,7 +23,8 @@ class Registration(models.Model):
     last_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
     phone_number = PhoneNumberField(region='US', null=False, blank=False, unique=True)
-
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='registrations')
+    muay_class = models.ManyToManyField('MuayClass', related_name='classes')
     def __str__(self):
         return f'{self.name} {self.last_name}'
     

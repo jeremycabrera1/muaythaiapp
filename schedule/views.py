@@ -3,12 +3,12 @@ from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from .forms import RegistrationForm, ReviewsForm
-from .models import MuayClass1, Reviews
+from .models import MuayClass, Reviews, Registration
 # Create your views here.
 
 
 def index(request):
-    muay_class = MuayClass1.objects.all().order_by('start_time')
+    muay_class = MuayClass.objects.all().order_by('start_time')
 
     context = {
         'muay_class': muay_class,
@@ -18,7 +18,7 @@ def index(request):
 
 @login_required
 def register_class(request, id):
-    muay_class = get_object_or_404(MuayClass1, id=id)
+    muay_class = get_object_or_404(MuayClass, pk=id)
 
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -35,6 +35,15 @@ def register_class(request, id):
 
     return render(request, 'schedule/registration_form.html', context)
 
+@login_required
+def my_classes(request):
+    my_classes = Registration.objects.filter(owner=request.user)
+    context = {
+        'my_classes': my_classes,
+        
+    }
+
+    return render(request, 'schedule/my_classes.html', context)
 
 def about(request):
     return render(request, 'schedule/about.html', {})

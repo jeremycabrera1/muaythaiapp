@@ -26,6 +26,11 @@
         <div class="right-btns">
             <a href="{% url 'reviews' %}" class="post-btns">Reviews</a>
             <a href="{% url 'inquiry' %}" class="post-btns">Inquiry</a>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'login' %}" class="post-btns">Login</a>
+            {% else %}
+            <a href="{% url 'logout' %}" class="post-btns">Log Out</a>
+            {% endif %}
         </div>
     </header>
     {% if user.is_authenticated %}
