@@ -16,6 +16,7 @@ def index(request):
 
     return render(request, 'schedule/index.html', context)
 
+
 @login_required
 def register_class(request, id):
     muay_class = get_object_or_404(MuayClass, pk=id)
@@ -26,6 +27,7 @@ def register_class(request, id):
             registration = form.save(commit=False)
             registration.owner = request.user
             registration.save()
+            form.save_m2m()
             return redirect('thank_you')
     else:
         form = RegistrationForm()
@@ -37,15 +39,17 @@ def register_class(request, id):
 
     return render(request, 'schedule/registration_form.html', context)
 
+
 @login_required
 def my_classes(request):
     my_classes = Registration.objects.filter(owner=request.user)
     context = {
         'my_classes': my_classes,
-        
+
     }
 
     return render(request, 'schedule/my_classes.html', context)
+
 
 def about(request):
     return render(request, 'schedule/about.html', {})
@@ -69,11 +73,12 @@ def thank_you_review(request):
 
 def read_review(request):
     review = Reviews.objects.all().order_by('-date')
-    
+
     context = {
         'review': review
     }
     return render(request, 'schedule/reviews.html', context)
+
 
 @login_required
 def create_review(request):
@@ -90,6 +95,7 @@ def create_review(request):
     return render(request, 'schedule/create_review.html', {
         'form': form,
     })
+
 
 @login_required
 def update_review(request, id):
@@ -108,6 +114,7 @@ def update_review(request, id):
         'edit': True
     }
     return render(request, 'schedule/create_review.html', context)
+
 
 @login_required
 def delete_review(request, id):

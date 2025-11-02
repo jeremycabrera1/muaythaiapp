@@ -3,13 +3,14 @@
 
 {% block content %}
 <ul>
-    {% for item in classes %}
-        <li>
-            <p>{{ item.title }}</p>
-            <p>{{ item.coach }}</p>
-            <p>{{ item.start_time }}</p>
-            <p>{{ item.end_time }}</p>
-        </li>
+    {% for registration in my_classes %}
+        {% for class in registration.muay_class.all %}
+             <li>{{ class.title }} — {{ class.coach }}</li>
+        {% empty %}
+             <li>No classes found for this registration.</li>
+        {% endfor %}
+    {% empty %}
+        <li>You are not registered for any classes yet.</li>
     {% endfor %}
 </ul>
 
