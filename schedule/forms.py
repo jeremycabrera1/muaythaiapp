@@ -11,7 +11,8 @@ class MuayClass1Form(forms.ModelForm):
 class RegistrationForm(forms.ModelForm):
     class Meta:
         model = Registration
-        fields = ['name', 'last_name', 'email', 'phone_number']
+        fields = ['muay_class']
+
 
 class ReviewsForm(forms.ModelForm):
     class Meta:

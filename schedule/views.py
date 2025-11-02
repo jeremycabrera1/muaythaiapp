@@ -23,7 +23,9 @@ def register_class(request, id):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
+            registration = form.save(commit=False)
+            registration.owner = request.user
+            registration.save()
             return redirect('thank_you')
     else:
         form = RegistrationForm()

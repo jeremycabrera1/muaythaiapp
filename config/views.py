@@ -1,19 +1,18 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 
-
+from .forms import CustomCreationForm
 # Create your views here.
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomCreationForm(request.POST)
         if form.is_valid():
             signup = form.save(commit=False)
             signup.save()
             return redirect('home')
 
     else:
-        form = UserCreationForm()
+        form = CustomCreationForm()
 
     context = {
         'form': form
