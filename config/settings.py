@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 from dotenv import load_dotenv
 from pathlib import Path
-import dj_database_url, os
+import dj_database_url
+import os
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'phonenumber_field',
     'bootstrap5',
-    #local apps
+    # local apps
     'schedule',
     'attendance',
     'classes',
