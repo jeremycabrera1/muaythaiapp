@@ -3,7 +3,11 @@ from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
 from .forms import RegistrationForm, ReviewsForm
-from .models import MuayClass, Reviews, Registration
+
+from reviews.models import Reviews
+from attendance.models import Registration
+from classes.models import MuayClass
+
 # Create your views here.
 
 

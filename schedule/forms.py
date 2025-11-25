@@ -1,5 +1,9 @@
 from django import forms
-from .models import MuayClass, Registration, Reviews
+
+
+from reviews.models import Reviews
+from classes.models import MuayClass 
+from attendance.models import Registration
 
 
 class MuayClass1Form(forms.ModelForm):
