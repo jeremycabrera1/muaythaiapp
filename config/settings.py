@@ -86,7 +86,7 @@ DATABASES = {
     }
 }
 
-DATABASES["default"] = dj_database_url.parse("postgresql://jeremycabrera:ksicbYerrWFVqPB3iypN2et8gLuUUl4E@dpg-d3pnn3k9c44c73c6qs40-a.virginia-postgres.render.com/mypostgresdb_u5wd")
+# DATABASES["default"] = dj_database_url.parse("postgresql://jeremycabrera:ksicbYerrWFVqPB3iypN2et8gLuUUl4E@dpg-d3pnn3k9c44c73c6qs40-a.virginia-postgres.render.com/mypostgresdb_u5wd")
 
 
 # Password validation
