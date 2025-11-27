@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('schedule.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', signup, name='signup'),
-    path('api/v1/', include('classes.api_urls')),
-    path('api/v1/', include('attendance.api_urls')),
+    path('api/v1/classes/', include('classes.api_urls')),
+    path('api/v1/attendance/', include('attendance.api_urls')),
 
 ]

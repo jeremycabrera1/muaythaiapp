@@ -1,12 +1,8 @@
-from django.shortcuts import render
-from rest_framework.serializers import ModelSerializer
+from rest_framework.viewsets import ModelViewSet
 from .models import Registration
 from .serializers import RegistrationSerializer
-# Create your views here.
 
-class RegistrationViewSet(ModelSerializer):
-    queryset = Registration.objects.all()
+class RegistrationViewSet(ModelViewSet):
     serializer_class = RegistrationSerializer
+    queryset = Registration.objects.all()
 
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
