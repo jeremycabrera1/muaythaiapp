@@ -1,135 +1,131 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
 
-from .forms import RegistrationForm, ReviewsForm
-
-from reviews.models import Reviews
 from attendance.models import Registration
 from classes.models import MuayClass
+from reviews.models import Reviews
+
+from .forms import RegistrationForm, ReviewsForm
 
 # Create your views here.
 
 
 def index(request):
-    muay_class = MuayClass.objects.all().order_by('start_time')
+    muay_class = MuayClass.objects.all().order_by("start_time")
 
     context = {
-        'muay_class': muay_class,
+        "muay_class": muay_class,
     }
 
-    return render(request, 'schedule/index.html', context)
+    return render(request, "schedule/index.html", context)
 
 
 @login_required
 def register_class(request, id):
     muay_class = get_object_or_404(MuayClass, pk=id)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = RegistrationForm(request.POST)
         if form.is_valid():
             registration = form.save(commit=False)
             registration.owner = request.user
             registration.save()
             form.save_m2m()
-            return redirect('thank_you')
+            return redirect("thank_you")
     else:
         form = RegistrationForm()
 
-    context = {
-        'form': form,
-        'muay_class': muay_class
-    }
+    context = {"form": form, "muay_class": muay_class}
 
-    return render(request, 'schedule/registration_form.html', context)
+    return render(request, "schedule/registration_form.html", context)
 
 
 @login_required
 def my_classes(request):
     my_classes = Registration.objects.filter(owner=request.user)
     context = {
-        'my_classes': my_classes,
-
+        "my_classes": my_classes,
     }
 
-    return render(request, 'schedule/my_classes.html', context)
+    return render(request, "schedule/my_classes.html", context)
 
 
 def about(request):
-    return render(request, 'schedule/about.html', {})
+    return render(request, "schedule/about.html", {})
 
 
 def events(request):
-    return render(request, 'schedule/events.html', {})
+    return render(request, "schedule/events.html", {})
 
 
 def gallery(request):
-    return render(request, 'schedule/gallery.html', {})
+    return render(request, "schedule/gallery.html", {})
 
 
 def thank_you(request):
-    return render(request, 'schedule/thank_you.html', {})
+    return render(request, "schedule/thank_you.html", {})
 
 
 def thank_you_review(request):
-    return render(request, 'schedule/thank_you_review.html')
+    return render(request, "schedule/thank_you_review.html")
 
 
 def read_review(request):
-    review = Reviews.objects.all().order_by('-date')
+    review = Reviews.objects.all().order_by("-date")
 
-    context = {
-        'review': review
-    }
-    return render(request, 'schedule/reviews.html', context)
+    context = {"review": review}
+    return render(request, "schedule/reviews.html", context)
 
 
 @login_required
 def create_review(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ReviewsForm(request.POST)
 
         if form.is_valid():
             review = form.save(commit=False)
             review.save()
-            return redirect('reviews')
+            return redirect("reviews")
     else:
         form = ReviewsForm()
 
-    return render(request, 'schedule/create_review.html', {
-        'form': form,
-    })
+    return render(
+        request,
+        "schedule/create_review.html",
+        {
+            "form": form,
+        },
+    )
 
 
 @login_required
 def update_review(request, id):
     review = get_object_or_404(Reviews, pk=id)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ReviewsForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
-            return redirect('reviews')
+            return redirect("reviews")
     else:
         form = ReviewsForm(instance=review)
 
-    context = {
-        'form': form,
-        'edit': True
-    }
-    return render(request, 'schedule/create_review.html', context)
+    context = {"form": form, "edit": True}
+    return render(request, "schedule/create_review.html", context)
 
 
 @login_required
 def delete_review(request, id):
     review = get_object_or_404(Reviews, pk=id)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         review.delete()
-        return redirect('reviews')
+        return redirect("reviews")
 
-    return render(request, 'schedule/delete_review_confirmation.html', {'review': review})
+    return render(
+        request, "schedule/delete_review_confirmation.html", {"review": review}
+    )
 
 
 def inquiry(request):
-    return render(request, 'schedule/inquiry.html', {})
+    return render(request, "schedule/inquiry.html", {})
