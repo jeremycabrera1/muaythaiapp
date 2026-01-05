@@ -1,0 +1,12 @@
+{
+  "containerName": "django",
+  "containerPort": 8000,
+  "healthCheck": {
+    "path": "/",
+    "successCodes": "200",
+    "healthyThreshold": 2,
+    "unhealthyThreshold": 2,
+    "timeoutSeconds": 5,
+    "intervalSeconds": 10
+  }
+}

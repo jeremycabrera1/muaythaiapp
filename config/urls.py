@@ -27,4 +27,5 @@ urlpatterns = [
     path("accounts/signup/", signup, name="signup"),
     path("api/v1/classes/", include("classes.api_urls")),
     path("api/v1/attendance/", include("attendance.api_urls")),
+    path("api/v1/profiles/", include("members.api_urls")),
 ]

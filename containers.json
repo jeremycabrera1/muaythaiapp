@@ -1,0 +1,17 @@
+{
+  "django": {
+    "image": ":muaythaiapp.django.2",
+    "environment": {
+      "DATABASE_HOST": "ls-fca0040fe65523ac975d7919fe269d45a687610a.cs7iywqcgszc.us-east-1.rds.amazonaws.com",
+      "DATABASE_PORT": "5432",
+      "DATABASE_NAME": "dockerdjango",
+      "DATABASE_USER": "dbuser",
+      "DATABASE_PASSWORD": "dbpassword",
+      "DJANGO_SECRET_KEY": "django-insecure-^@(q#a=c_#ig_bm9s1$i%r591i6&cl(_6sff+k_@v&!ojn80^!",
+      "DEBUG": "false"
+    },
+    "ports": {
+      "8000": "HTTP"
+    }
+  }
+}
