@@ -4,19 +4,10 @@
 {% block content %}
 <ul>
     {% for registration in my_classes %}
-        {% for class in registration.muay_class.all %}
-             <li>{{ class.title }} — {{ class.coach }}</li>
-        {% empty %}
-             <li>No classes found for this registration.</li>
-        {% endfor %}
+        <li><h4>{{ registration.muay_class.title }} - {{ registration.muay_class.coach }}</h4></li>
     {% empty %}
         <li>You are not registered for any classes yet.</li>
     {% endfor %}
 </ul>
-
-
-
-
-
 
 {% endblock content %}

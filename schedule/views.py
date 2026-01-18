@@ -42,7 +42,7 @@ def register_class(request, id):
 
 @login_required
 def my_classes(request):
-    my_classes = Registration.objects.filter(owner=request.user)
+    my_classes = Registration.objects.filter(owner=request.user).select_related("muay_class")
     context = {
         "my_classes": my_classes,
     }
