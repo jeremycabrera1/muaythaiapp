@@ -1,8 +1,8 @@
 from rest_framework.routers import DefaultRouter
-from .views import MuayClassViewSet
+from .views import MuayClassModelViewSet
 
 
 router = DefaultRouter()
-router.register('classes', MuayClassViewSet, basename='classes')
+router.register('classes', MuayClassModelViewSet, basename='classes')
 
 urlpatterns = router.urls

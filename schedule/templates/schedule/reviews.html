@@ -15,7 +15,7 @@
     <ul class="review-list">
         {% for item in review %}
         <li>
-            <strong>{{ item.name }}</strong><br>
+            <strong>{{ item.owner }}</strong><br>
             <span class="rating">⭐ {{ item.rating }}/5</span><br>
             <p class="review-text">{{ item.review }}</p>
             <small class="review-date">{{ item.date }}</small>

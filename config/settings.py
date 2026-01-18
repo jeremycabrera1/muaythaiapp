@@ -44,11 +44,12 @@ INSTALLED_APPS = [
     "phonenumber_field",
     "bootstrap5",
     "rest_framework",
+    "schema_viewer",
+    "drf_spectacular",
     # local apps
     "schedule",
     "attendance",
     "classes",
-    "members",
     "reviews",
 ]
 
@@ -87,18 +88,42 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.{}".format(
-            os.getenv("DATABASE_ENGINE", "sqlite3")
-        ),
-        "NAME": os.getenv("DATABASE_NAME", "polls"),
-        "USER": os.getenv("DATABASE_USERNAME", "myprojectuser"),
-        "PASSWORD": os.getenv("DATABASE_PASSWORD", "password"),
-        "HOST": os.getenv("DATABASE_HOST", "127.0.0.1"),
-        "PORT": os.getenv("DATABASE_PORT", 5432),
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+
+if os.getenv("USE_POSTGRES", "") == "1":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv("POSTGRES_DB"),
+            "USER": os.getenv("POSTGRES_USER"),
+            "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+            "HOST": os.getenv("POSTGRES_HOST"),
+            "PORT": os.getenv("POSTGRES_PORT", "5432"),
+        }
+    }
+
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.{}".format(
+#             os.getenv("DATABASE_ENGINE", "sqlite3")
+#         ),
+#         "NAME": os.getenv("DATABASE_NAME", "polls"),
+#         "USER": os.getenv("DATABASE_USERNAME", "myprojectuser"),
+#         "PASSWORD": os.getenv("DATABASE_PASSWORD", "password"),
+#         "HOST": os.getenv("DATABASE_HOST", "127.0.0.1"),
+#         "PORT": os.getenv("DATABASE_PORT", 5432),
+#     }
+# }
 
 # DATABASES["default"] = dj_database_url.parse("postgresql://jeremycabrera:ksicbYerrWFVqPB3iypN2et8gLuUUl4E@dpg-d3pnn3k9c44c73c6qs40-a.virginia-postgres.render.com/mypostgresdb_u5wd")
 
@@ -155,3 +180,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 GYM_NAME = "My Link Muay Thai"
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
+
+REST_FRAMEWORK = {"DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema"}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Muay Thai Project",
+    "DESCRIPTION": "This project is meant to be used as a membership manager",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+}

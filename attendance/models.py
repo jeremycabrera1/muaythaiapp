@@ -7,12 +7,9 @@ User = get_user_model()
 
 
 class Registration(models.Model):
-    owner = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="registrations"
-    )
-    muay_class = models.ManyToManyField(
-        "classes.MuayClass", related_name="registrations"
-    )
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name="registrations")
+    muay_class = models.ForeignKey("classes.MuayClass", on_delete=models.CASCADE, related_name="registrations")
+    created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.owner.username}"
+    class Meta:
+        unique_together = ("owner", "muay_class")
