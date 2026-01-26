@@ -13,9 +13,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
+if os.getenv("ENVIRONMENT", "dev") == "dev":
+    from dotenv import load_dotenv
+    load_dotenv()
 
-load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,10 +28,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get("DEBUG", default=0))
+DEBUG = os.getenv("DEBUG", "0") == "1"
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1").split(",")
 
+CSRF_TRUSTED_ORIGINS = (
+    os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",")
+    if os.getenv("CSRF_TRUSTED_ORIGINS")
+    else []
+)
 
 # Application definition
 
@@ -88,16 +94,12 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
 
 if os.getenv("USE_POSTGRES", "") == "1":
     DATABASES = {
@@ -111,21 +113,6 @@ if os.getenv("USE_POSTGRES", "") == "1":
         }
     }
 
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.{}".format(
-#             os.getenv("DATABASE_ENGINE", "sqlite3")
-#         ),
-#         "NAME": os.getenv("DATABASE_NAME", "polls"),
-#         "USER": os.getenv("DATABASE_USERNAME", "myprojectuser"),
-#         "PASSWORD": os.getenv("DATABASE_PASSWORD", "password"),
-#         "HOST": os.getenv("DATABASE_HOST", "127.0.0.1"),
-#         "PORT": os.getenv("DATABASE_PORT", 5432),
-#     }
-# }
-
-# DATABASES["default"] = dj_database_url.parse("postgresql://jeremycabrera:ksicbYerrWFVqPB3iypN2et8gLuUUl4E@dpg-d3pnn3k9c44c73c6qs40-a.virginia-postgres.render.com/mypostgresdb_u5wd")
 
 
 # Password validation
@@ -189,3 +176,10 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
 }
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = True
+
+if not DEBUG:
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True

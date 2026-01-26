@@ -30,4 +30,5 @@ urlpatterns = [
     path("register/<int:id>/", register_class, name="register_class"),
     path("thank-you/", thank_you, name="thank_you"),
     path("thank-you-review/", thank_you_review, name="thank_you_review"),
+    
 ]

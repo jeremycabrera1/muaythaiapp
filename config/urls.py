@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import include, path
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
-from .views import signup
+from .views import signup, health
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -32,4 +32,5 @@ urlpatterns = [
     path("api/v1/classes/", include("classes.api_urls")),
     path("api/v1/attendance/", include("attendance.api_urls")),
     path("api/v1/reviews/", include("reviews.api_urls")),
+    path("health/", health),
 ]
